@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+191fc971e8310a4b6243e5c871803d0d src/Config.c
+09a8111250f10ad390033169e6ff7557 src/telefax_valac.stamp
