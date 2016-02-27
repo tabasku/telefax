@@ -1,3 +1,2 @@
 # telefax
-Telegram client for GNOME 3 desktop enviroment
-Created with Vala
+Telegram client for GNOME 3 desktop environment created with Vala
