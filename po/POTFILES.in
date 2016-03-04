@@ -1,6 +1,3 @@
-src/main.vala
-src/telefax.common/controller.vala
-src/telefax.common/controller_factory.vala
-src/telefax.common/telefax.common.interfaces/IController.vala
-src/telefax.ui/main_window.vala
-src/telefax.vala
+src/Main.vala
+src/MainWindow.vala
+src/Telefax.vala

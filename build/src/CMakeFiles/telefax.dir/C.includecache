@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/jtvi/Codes/telefax/build/src/Config.c
+/home/jtvi/Projects/telefax/build/src/Config.c
 glib.h
 -
 glib-object.h
@@ -16,7 +16,7 @@ stdlib.h
 string.h
 -
 
-/home/jtvi/Codes/telefax/build/src/main.c
+/home/jtvi/Projects/telefax/build/src/Main.c
 glib.h
 -
 glib-object.h
@@ -27,54 +27,32 @@ string.h
 -
 gtk/gtk.h
 -
+granite.h
+-
 
-/home/jtvi/Codes/telefax/build/src/telefax.c
+/home/jtvi/Projects/telefax/build/src/MainWindow.c
 glib.h
 -
 glib-object.h
 -
 gtk/gtk.h
 -
+glib/gi18n-lib.h
+-
 
-/home/jtvi/Codes/telefax/build/src/telefax.common/controller.c
+/home/jtvi/Projects/telefax/build/src/Telefax.c
 glib.h
 -
 glib-object.h
 -
-stdlib.h
--
-string.h
--
-gobject/gvaluecollector.h
--
-
-/home/jtvi/Codes/telefax/build/src/telefax.common/controller_factory.c
-glib.h
--
-glib-object.h
--
-gee.h
--
-stdlib.h
--
-string.h
--
-
-/home/jtvi/Codes/telefax/build/src/telefax.common/telefax.common.interfaces/IController.c
-glib.h
--
-glib-object.h
--
-stdlib.h
--
-string.h
--
-
-/home/jtvi/Codes/telefax/build/src/telefax.ui/main_window.c
-glib.h
--
-glib-object.h
+granite.h
 -
 gtk/gtk.h
+-
+stdlib.h
+-
+string.h
+-
+gio/gio.h
 -
 

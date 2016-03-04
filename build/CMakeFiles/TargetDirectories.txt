@@ -1,3 +1,3 @@
-/home/jtvi/Codes/telefax/build/po/CMakeFiles/pot.dir
-/home/jtvi/Codes/telefax/build/po/CMakeFiles/i18n.dir
-/home/jtvi/Codes/telefax/build/src/CMakeFiles/telefax.dir
+/home/jtvi/Projects/telefax/build/po/CMakeFiles/i18n.dir
+/home/jtvi/Projects/telefax/build/po/CMakeFiles/pot.dir
+/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir

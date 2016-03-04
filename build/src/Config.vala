@@ -5,6 +5,6 @@ namespace Constants {
 	public const string RELEASE_NAME = "telefax";
 	public const string VERSION = "1.0.0";
 #if UNITEST
-	public const string TESTSRCDIR = "/home/jtvi/Codes/telefax";
+	public const string TESTSRCDIR = "/home/jtvi/Projects/telefax";
 #endif
 }
