@@ -1,0 +1,20 @@
+using Granite;
+
+namespace telefax {
+
+	public class Telefax : Granite.Application {
+
+		public Telefax(){
+
+		}
+
+		protected override void activate () {
+        	if (main_window == null) {
+        	    if (DEBUG)
+                	Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
+            	else
+                	Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
+			}
+		}
+	}
+}
