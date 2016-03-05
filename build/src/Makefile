@@ -235,6 +235,54 @@ MainWindow.c.s:
 	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/MainWindow.c.s
 .PHONY : MainWindow.c.s
 
+Objects/SavedState.o: Objects/SavedState.c.o
+.PHONY : Objects/SavedState.o
+
+# target to build an object file
+Objects/SavedState.c.o:
+	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/SavedState.c.o
+.PHONY : Objects/SavedState.c.o
+
+Objects/SavedState.i: Objects/SavedState.c.i
+.PHONY : Objects/SavedState.i
+
+# target to preprocess a source file
+Objects/SavedState.c.i:
+	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/SavedState.c.i
+.PHONY : Objects/SavedState.c.i
+
+Objects/SavedState.s: Objects/SavedState.c.s
+.PHONY : Objects/SavedState.s
+
+# target to generate assembly for a file
+Objects/SavedState.c.s:
+	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/SavedState.c.s
+.PHONY : Objects/SavedState.c.s
+
+Objects/Settings.o: Objects/Settings.c.o
+.PHONY : Objects/Settings.o
+
+# target to build an object file
+Objects/Settings.c.o:
+	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/Settings.c.o
+.PHONY : Objects/Settings.c.o
+
+Objects/Settings.i: Objects/Settings.c.i
+.PHONY : Objects/Settings.i
+
+# target to preprocess a source file
+Objects/Settings.c.i:
+	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/Settings.c.i
+.PHONY : Objects/Settings.c.i
+
+Objects/Settings.s: Objects/Settings.c.s
+.PHONY : Objects/Settings.s
+
+# target to generate assembly for a file
+Objects/Settings.c.s:
+	cd /home/jtvi/Projects/telefax/build && $(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/Settings.c.s
+.PHONY : Objects/Settings.c.s
+
 Telefax.o: Telefax.c.o
 .PHONY : Telefax.o
 
@@ -282,6 +330,12 @@ help:
 	@echo "... MainWindow.o"
 	@echo "... MainWindow.i"
 	@echo "... MainWindow.s"
+	@echo "... Objects/SavedState.o"
+	@echo "... Objects/SavedState.i"
+	@echo "... Objects/SavedState.s"
+	@echo "... Objects/Settings.o"
+	@echo "... Objects/Settings.i"
+	@echo "... Objects/Settings.s"
 	@echo "... Telefax.o"
 	@echo "... Telefax.i"
 	@echo "... Telefax.s"

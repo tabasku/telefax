@@ -28,22 +28,16 @@ endif()
 
 find_package(PkgConfig)
 
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} atk)
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} cairo)
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gdk-3.0)
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gdk-pixbuf-2.0)
 set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gee-0.8)
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gio-2.0)
 set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gio-unix-2.0)
 set(MODULES_TO_CHECK ${MODULES_TO_CHECK} glib-2.0)
 set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gobject-2.0)
 set(MODULES_TO_CHECK ${MODULES_TO_CHECK} granite)
 set(MODULES_TO_CHECK ${MODULES_TO_CHECK} gtk+-3.0)
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} pango)
-set(MODULES_TO_CHECK ${MODULES_TO_CHECK} x11)
 
 pkg_check_modules(DEPS REQUIRED ${MODULES_TO_CHECK})
 
 add_subdirectory(src)
 add_subdirectory(po)
+add_subdirectory(schemas)
 

@@ -218,6 +218,12 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Compile GSettings Schemas after installation
+GSETTINGS_COMPILE:BOOL=ON
+
+//Install GSettings Schemas locally instead of to the GLib prefix
+GSETTINGS_LOCALINSTALL:BOOL=ON
+
 //Update the icon cache after installing
 ICON_UPDATE:BOOL=ON
 
@@ -360,7 +366,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=3
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -401,60 +407,40 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-DEPS_CFLAGS:INTERNAL=-pthread;-I/usr/include/atk-1.0;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-I/usr/include/cairo;-I/usr/include/pixman-1;-I/usr/include/freetype2;-I/usr/include/libpng12;-I/usr/include/gtk-3.0;-I/usr/include/gio-unix-2.0/;-I/usr/include/pango-1.0;-I/usr/include/gdk-pixbuf-2.0;-I/usr/include/harfbuzz;-I/usr/include/gee-0.8;-I/usr/include/granite;-I/usr/include/at-spi2-atk/2.0
+DEPS_CFLAGS:INTERNAL=-pthread;-I/usr/include/gee-0.8;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-I/usr/include/gio-unix-2.0/;-I/usr/include/granite;-I/usr/include/cairo;-I/usr/include/gtk-3.0;-I/usr/include/gdk-pixbuf-2.0;-I/usr/include/pixman-1;-I/usr/include/freetype2;-I/usr/include/libpng12;-I/usr/include/pango-1.0;-I/usr/include/harfbuzz;-I/usr/include/atk-1.0;-I/usr/include/at-spi2-atk/2.0
 DEPS_CFLAGS_I:INTERNAL=
 DEPS_CFLAGS_OTHER:INTERNAL=-pthread
 DEPS_FOUND:INTERNAL=1
 DEPS_INCLUDEDIR:INTERNAL=
-DEPS_INCLUDE_DIRS:INTERNAL=/usr/include/atk-1.0;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/cairo;/usr/include/pixman-1;/usr/include/freetype2;/usr/include/libpng12;/usr/include/gtk-3.0;/usr/include/gio-unix-2.0/;/usr/include/pango-1.0;/usr/include/gdk-pixbuf-2.0;/usr/include/harfbuzz;/usr/include/gee-0.8;/usr/include/granite;/usr/include/at-spi2-atk/2.0
-DEPS_LDFLAGS:INTERNAL=-pthread;-lgranite;-lgee-0.8;-lgthread-2.0;-lgtk-3;-lgdk-3;-latk-1.0;-lgio-2.0;-lpangocairo-1.0;-lgdk_pixbuf-2.0;-lcairo-gobject;-lcairo;-lpango-1.0;-lgobject-2.0;-lglib-2.0;-lX11
+DEPS_INCLUDE_DIRS:INTERNAL=/usr/include/gee-0.8;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/gio-unix-2.0/;/usr/include/granite;/usr/include/cairo;/usr/include/gtk-3.0;/usr/include/gdk-pixbuf-2.0;/usr/include/pixman-1;/usr/include/freetype2;/usr/include/libpng12;/usr/include/pango-1.0;/usr/include/harfbuzz;/usr/include/atk-1.0;/usr/include/at-spi2-atk/2.0
+DEPS_LDFLAGS:INTERNAL=-pthread;-lgranite;-lgee-0.8;-lgthread-2.0;-lgtk-3;-lgdk-3;-latk-1.0;-lgio-2.0;-lpangocairo-1.0;-lgdk_pixbuf-2.0;-lcairo-gobject;-lpango-1.0;-lcairo;-lgobject-2.0;-lglib-2.0
 DEPS_LDFLAGS_OTHER:INTERNAL=
 DEPS_LIBDIR:INTERNAL=
-DEPS_LIBRARIES:INTERNAL=granite;gee-0.8;gthread-2.0;gtk-3;gdk-3;atk-1.0;gio-2.0;pangocairo-1.0;gdk_pixbuf-2.0;cairo-gobject;cairo;pango-1.0;gobject-2.0;glib-2.0;X11
+DEPS_LIBRARIES:INTERNAL=granite;gee-0.8;gthread-2.0;gtk-3;gdk-3;atk-1.0;gio-2.0;pangocairo-1.0;gdk_pixbuf-2.0;cairo-gobject;pango-1.0;cairo;gobject-2.0;glib-2.0
 DEPS_LIBRARY_DIRS:INTERNAL=
 DEPS_LIBS:INTERNAL=
 DEPS_LIBS_L:INTERNAL=
 DEPS_LIBS_OTHER:INTERNAL=
 DEPS_LIBS_PATHS:INTERNAL=
 DEPS_PREFIX:INTERNAL=
-DEPS_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/include/atk-1.0;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-I/usr/include/cairo;-I/usr/include/pixman-1;-I/usr/include/freetype2;-I/usr/include/libpng12;-I/usr/include/gtk-3.0;-I/usr/include/gio-unix-2.0/;-I/usr/include/pango-1.0;-I/usr/include/gdk-pixbuf-2.0;-I/usr/include/harfbuzz;-I/usr/include/gee-0.8;-I/usr/include/granite;-I/usr/include/at-spi2-atk/2.0
+DEPS_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/include/gee-0.8;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-I/usr/include/gio-unix-2.0/;-I/usr/include/granite;-I/usr/include/cairo;-I/usr/include/gtk-3.0;-I/usr/include/gdk-pixbuf-2.0;-I/usr/include/pixman-1;-I/usr/include/freetype2;-I/usr/include/libpng12;-I/usr/include/pango-1.0;-I/usr/include/harfbuzz;-I/usr/include/atk-1.0;-I/usr/include/at-spi2-atk/2.0
 DEPS_STATIC_CFLAGS_I:INTERNAL=
 DEPS_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
-DEPS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/atk-1.0;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/cairo;/usr/include/pixman-1;/usr/include/freetype2;/usr/include/libpng12;/usr/include/gtk-3.0;/usr/include/gio-unix-2.0/;/usr/include/pango-1.0;/usr/include/gdk-pixbuf-2.0;/usr/include/harfbuzz;/usr/include/gee-0.8;/usr/include/granite;/usr/include/at-spi2-atk/2.0
-DEPS_STATIC_LDFLAGS:INTERNAL=-pthread;-lgranite;-lgee-0.8;-lgthread-2.0;-lgtk-3;-latk-bridge-2.0;-lgdk-3;-latk-1.0;-lXinerama;-lXi;-lXrandr;-lXcursor;-lXcomposite;-lXdamage;-lwayland-client;-lxkbcommon;-lwayland-cursor;-lpangoft2-1.0;-lpangocairo-1.0;-lgdk_pixbuf-2.0;-lcairo-gobject;-lgio-2.0;-lresolv;-lselinux;-lXfixes;-lharfbuzz;-lcairo;-lpixman-1;-lfontconfig;-lxcb-shm;-lxcb-render;-lXrender;-lXext;-lexpat;-lfreetype;-lpng12;-lz;-lm;-lpango-1.0;-lgmodule-2.0;-ldl;-lgobject-2.0;-lffi;-lglib-2.0;-lpcre;-lX11;-lpthread;-lxcb;-lXau;-lXdmcp
+DEPS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/gee-0.8;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/gio-unix-2.0/;/usr/include/granite;/usr/include/cairo;/usr/include/gtk-3.0;/usr/include/gdk-pixbuf-2.0;/usr/include/pixman-1;/usr/include/freetype2;/usr/include/libpng12;/usr/include/pango-1.0;/usr/include/harfbuzz;/usr/include/atk-1.0;/usr/include/at-spi2-atk/2.0
+DEPS_STATIC_LDFLAGS:INTERNAL=-pthread;-lgranite;-lgee-0.8;-lgthread-2.0;-lgtk-3;-latk-bridge-2.0;-lgdk-3;-latk-1.0;-lXinerama;-lXi;-lXrandr;-lXcursor;-lXcomposite;-lXdamage;-lwayland-client;-lxkbcommon;-lwayland-cursor;-lpangoft2-1.0;-lpangocairo-1.0;-lgdk_pixbuf-2.0;-lcairo-gobject;-lgio-2.0;-lresolv;-lselinux;-lXfixes;-lharfbuzz;-lpango-1.0;-lcairo;-lpixman-1;-lfontconfig;-lxcb-shm;-lxcb-render;-lXrender;-lXext;-lexpat;-lfreetype;-lX11;-lpthread;-lxcb;-lXau;-lXdmcp;-lpng12;-lz;-lm;-lgmodule-2.0;-ldl;-lgobject-2.0;-lffi;-lglib-2.0;-lpcre
 DEPS_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
 DEPS_STATIC_LIBDIR:INTERNAL=
-DEPS_STATIC_LIBRARIES:INTERNAL=granite;gee-0.8;gthread-2.0;gtk-3;atk-bridge-2.0;gdk-3;atk-1.0;Xinerama;Xi;Xrandr;Xcursor;Xcomposite;Xdamage;wayland-client;xkbcommon;wayland-cursor;pangoft2-1.0;pangocairo-1.0;gdk_pixbuf-2.0;cairo-gobject;gio-2.0;resolv;selinux;Xfixes;harfbuzz;cairo;pixman-1;fontconfig;xcb-shm;xcb-render;Xrender;Xext;expat;freetype;png12;z;m;pango-1.0;gmodule-2.0;dl;gobject-2.0;ffi;glib-2.0;pcre;X11;pthread;xcb;Xau;Xdmcp
+DEPS_STATIC_LIBRARIES:INTERNAL=granite;gee-0.8;gthread-2.0;gtk-3;atk-bridge-2.0;gdk-3;atk-1.0;Xinerama;Xi;Xrandr;Xcursor;Xcomposite;Xdamage;wayland-client;xkbcommon;wayland-cursor;pangoft2-1.0;pangocairo-1.0;gdk_pixbuf-2.0;cairo-gobject;gio-2.0;resolv;selinux;Xfixes;harfbuzz;pango-1.0;cairo;pixman-1;fontconfig;xcb-shm;xcb-render;Xrender;Xext;expat;freetype;X11;pthread;xcb;Xau;Xdmcp;png12;z;m;gmodule-2.0;dl;gobject-2.0;ffi;glib-2.0;pcre
 DEPS_STATIC_LIBRARY_DIRS:INTERNAL=
 DEPS_STATIC_LIBS:INTERNAL=
 DEPS_STATIC_LIBS_L:INTERNAL=
 DEPS_STATIC_LIBS_OTHER:INTERNAL=
 DEPS_STATIC_LIBS_PATHS:INTERNAL=
 DEPS_VERSION:INTERNAL=
-DEPS_atk_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_atk_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_atk_PREFIX:INTERNAL=/usr
-DEPS_atk_VERSION:INTERNAL=2.14.0
-DEPS_cairo_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_cairo_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_cairo_PREFIX:INTERNAL=/usr
-DEPS_cairo_VERSION:INTERNAL=1.14.2
-DEPS_gdk-3.0_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_gdk-3.0_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_gdk-3.0_PREFIX:INTERNAL=/usr
-DEPS_gdk-3.0_VERSION:INTERNAL=3.14.15
-DEPS_gdk-pixbuf-2.0_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_gdk-pixbuf-2.0_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_gdk-pixbuf-2.0_PREFIX:INTERNAL=/usr
-DEPS_gdk-pixbuf-2.0_VERSION:INTERNAL=2.30.7
 DEPS_gee-0.8_INCLUDEDIR:INTERNAL=/usr/include
 DEPS_gee-0.8_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
 DEPS_gee-0.8_PREFIX:INTERNAL=/usr
 DEPS_gee-0.8_VERSION:INTERNAL=0.10.5
-DEPS_gio-2.0_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_gio-2.0_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_gio-2.0_PREFIX:INTERNAL=/usr
-DEPS_gio-2.0_VERSION:INTERNAL=2.42.2
 DEPS_gio-unix-2.0_INCLUDEDIR:INTERNAL=/usr/include
 DEPS_gio-unix-2.0_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
 DEPS_gio-unix-2.0_PREFIX:INTERNAL=/usr
@@ -475,14 +461,6 @@ DEPS_gtk+-3.0_INCLUDEDIR:INTERNAL=/usr/include
 DEPS_gtk+-3.0_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
 DEPS_gtk+-3.0_PREFIX:INTERNAL=/usr
 DEPS_gtk+-3.0_VERSION:INTERNAL=3.14.15
-DEPS_pango_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_pango_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_pango_PREFIX:INTERNAL=/usr
-DEPS_pango_VERSION:INTERNAL=1.36.8
-DEPS_x11_INCLUDEDIR:INTERNAL=/usr/include
-DEPS_x11_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
-DEPS_x11_PREFIX:INTERNAL=/usr
-DEPS_x11_VERSION:INTERNAL=1.6.2
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.26()]
 //Details about finding Vala

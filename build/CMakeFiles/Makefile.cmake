@@ -12,11 +12,13 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/2.8.12.2/CMakeSystem.cmake"
   "../cmake/FindVala.cmake"
+  "../cmake/GSettings.cmake"
   "../cmake/ParseArguments.cmake"
   "../cmake/Translations.cmake"
   "../cmake/ValaPrecompile.cmake"
   "../cmake/ValaVersion.cmake"
   "../po/CMakeLists.txt"
+  "../schemas/CMakeLists.txt"
   "../src/CMakeLists.txt"
   "../src/Config.vala.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCCompiler.cmake.in"
@@ -75,6 +77,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "po/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "schemas/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

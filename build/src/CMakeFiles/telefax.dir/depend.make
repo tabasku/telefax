@@ -7,5 +7,9 @@ src/CMakeFiles/telefax.dir/Main.c.o: src/Main.c
 
 src/CMakeFiles/telefax.dir/MainWindow.c.o: src/MainWindow.c
 
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o: src/Objects/SavedState.c
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o: src/Objects/Settings.c
+
 src/CMakeFiles/telefax.dir/Telefax.c.o: src/Telefax.c
 

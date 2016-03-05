@@ -1,4 +1,4 @@
-namespace telefax {
+namespace Telefax {
 
 	/**
  	* Application entry point

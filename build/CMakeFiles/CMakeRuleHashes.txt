@@ -2,4 +2,4 @@
 418d6d47b9cfeeec3af98136b21e8a71 po/CMakeFiles/i18n
 418d6d47b9cfeeec3af98136b21e8a71 po/CMakeFiles/pot
 699faaeab51795636af6f7556d019004 src/Config.c
-d7cd9a8fa704233e2b0af1d1353f2616 src/telefax_valac.stamp
+dae45b995c1e765d7d4efb64ad13f2a1 src/telefax_valac.stamp

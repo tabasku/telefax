@@ -7,5 +7,9 @@ src/CMakeFiles/telefax.dir/Main.c.o
  /home/jtvi/Projects/telefax/build/src/Main.c
 src/CMakeFiles/telefax.dir/MainWindow.c.o
  /home/jtvi/Projects/telefax/build/src/MainWindow.c
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o
+ /home/jtvi/Projects/telefax/build/src/Objects/SavedState.c
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o
+ /home/jtvi/Projects/telefax/build/src/Objects/Settings.c
 src/CMakeFiles/telefax.dir/Telefax.c.o
  /home/jtvi/Projects/telefax/build/src/Telefax.c

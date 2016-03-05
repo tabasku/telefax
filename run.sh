@@ -14,16 +14,9 @@ BUILD_DIR="./build/"
 
 #Check if BUILD_DIR exists and is empty. Prompt user before removing it
 if [[ -d "$BUILD_DIR" && "$(ls -A $BUILD_DIR)" ]]; then
-   echo  -e "WARNING: $BUILD_DIR exists and is not empty!"
-   read -p "Overwrite? (Y/N)" -n 1 -r
-   echo
-   if [[ $REPLY =~ ^[Yy]$ ]]; then
-      $RM -Rv $BUILD_DIR/*
+   echo  -e "WARNING: Cleaning $BUILD_DIR!"
+   $RM -Rv $BUILD_DIR/*
    else
-      echo "Aborted."
-      exit 1
-   fi
-else
    #Create BUILD_DIR
    $MKDIR -p $BUILD_DIR
 fi

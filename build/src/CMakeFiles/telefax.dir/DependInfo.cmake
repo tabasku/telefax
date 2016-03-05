@@ -7,6 +7,8 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/jtvi/Projects/telefax/build/src/Config.c" "/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/Config.c.o"
   "/home/jtvi/Projects/telefax/build/src/Main.c" "/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/Main.c.o"
   "/home/jtvi/Projects/telefax/build/src/MainWindow.c" "/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/MainWindow.c.o"
+  "/home/jtvi/Projects/telefax/build/src/Objects/SavedState.c" "/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/Objects/SavedState.c.o"
+  "/home/jtvi/Projects/telefax/build/src/Objects/Settings.c" "/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/Objects/Settings.c.o"
   "/home/jtvi/Projects/telefax/build/src/Telefax.c" "/home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/Telefax.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
@@ -20,6 +22,8 @@ SET(CMAKE_TARGET_DEFINITIONS
 SET(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/jtvi/Projects/telefax/build/src/Main.c" "/home/jtvi/Projects/telefax/build/src/Config.c"
   "/home/jtvi/Projects/telefax/build/src/MainWindow.c" "/home/jtvi/Projects/telefax/build/src/Config.c"
+  "/home/jtvi/Projects/telefax/build/src/Objects/SavedState.c" "/home/jtvi/Projects/telefax/build/src/Config.c"
+  "/home/jtvi/Projects/telefax/build/src/Objects/Settings.c" "/home/jtvi/Projects/telefax/build/src/Config.c"
   "/home/jtvi/Projects/telefax/build/src/Telefax.c" "/home/jtvi/Projects/telefax/build/src/Config.c"
   )
 

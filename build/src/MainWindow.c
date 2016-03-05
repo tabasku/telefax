@@ -6,94 +6,241 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n-lib.h>
+#include <granite.h>
+#include <gdk/gdk.h>
 
 
 #define TELEFAX_TYPE_MAIN_WINDOW (telefax_main_window_get_type ())
-#define TELEFAX_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_TYPE_MAIN_WINDOW, telefaxMainWindow))
-#define TELEFAX_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_TYPE_MAIN_WINDOW, telefaxMainWindowClass))
+#define TELEFAX_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindow))
+#define TELEFAX_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindowClass))
 #define TELEFAX_IS_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TELEFAX_TYPE_MAIN_WINDOW))
 #define TELEFAX_IS_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TELEFAX_TYPE_MAIN_WINDOW))
-#define TELEFAX_MAIN_WINDOW_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_TYPE_MAIN_WINDOW, telefaxMainWindowClass))
+#define TELEFAX_MAIN_WINDOW_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindowClass))
 
-typedef struct _telefaxMainWindow telefaxMainWindow;
-typedef struct _telefaxMainWindowClass telefaxMainWindowClass;
-typedef struct _telefaxMainWindowPrivate telefaxMainWindowPrivate;
+typedef struct _TelefaxMainWindow TelefaxMainWindow;
+typedef struct _TelefaxMainWindowClass TelefaxMainWindowClass;
+typedef struct _TelefaxMainWindowPrivate TelefaxMainWindowPrivate;
 
-struct _telefaxMainWindow {
+#define TELEFAX_COMMON_TYPE_SAVED_STATE (telefax_common_saved_state_get_type ())
+#define TELEFAX_COMMON_SAVED_STATE(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_COMMON_TYPE_SAVED_STATE, TelefaxCommonSavedState))
+#define TELEFAX_COMMON_SAVED_STATE_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_COMMON_TYPE_SAVED_STATE, TelefaxCommonSavedStateClass))
+#define TELEFAX_COMMON_IS_SAVED_STATE(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TELEFAX_COMMON_TYPE_SAVED_STATE))
+#define TELEFAX_COMMON_IS_SAVED_STATE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TELEFAX_COMMON_TYPE_SAVED_STATE))
+#define TELEFAX_COMMON_SAVED_STATE_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_COMMON_TYPE_SAVED_STATE, TelefaxCommonSavedStateClass))
+
+typedef struct _TelefaxCommonSavedState TelefaxCommonSavedState;
+typedef struct _TelefaxCommonSavedStateClass TelefaxCommonSavedStateClass;
+
+#define TELEFAX_COMMON_TYPE_WINDOW_STATE (telefax_common_window_state_get_type ())
+#define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
+
+struct _TelefaxMainWindow {
 	GtkWindow parent_instance;
-	telefaxMainWindowPrivate * priv;
+	TelefaxMainWindowPrivate * priv;
 };
 
-struct _telefaxMainWindowClass {
+struct _TelefaxMainWindowClass {
 	GtkWindowClass parent_class;
 };
+
+struct _TelefaxMainWindowPrivate {
+	gboolean window_maximized;
+	gint window_width;
+	gint window_height;
+};
+
+typedef enum  {
+	TELEFAX_COMMON_WINDOW_STATE_NORMAL,
+	TELEFAX_COMMON_WINDOW_STATE_MAXIMIZED,
+	TELEFAX_COMMON_WINDOW_STATE_FULLSCREEN
+} TelefaxCommonWindowState;
 
 
 static gpointer telefax_main_window_parent_class = NULL;
 
 GType telefax_main_window_get_type (void) G_GNUC_CONST;
+#define TELEFAX_MAIN_WINDOW_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindowPrivate))
 enum  {
 	TELEFAX_MAIN_WINDOW_DUMMY_PROPERTY
 };
-telefaxMainWindow* telefax_main_window_new (void);
-telefaxMainWindow* telefax_main_window_construct (GType object_type);
-static inline void telefax_main_window_setup_window (telefaxMainWindow* self);
-static void telefax_main_window_on_quit (telefaxMainWindow* self);
+TelefaxMainWindow* telefax_main_window_new (void);
+TelefaxMainWindow* telefax_main_window_construct (GType object_type);
+static void telefax_main_window_setup_window (TelefaxMainWindow* self);
+static void telefax_main_window_create_layout (TelefaxMainWindow* self);
+GType telefax_common_saved_state_get_type (void) G_GNUC_CONST;
+TelefaxCommonSavedState* telefax_common_saved_state_get_default (void);
+gint telefax_common_saved_state_get_window_width (TelefaxCommonSavedState* self);
+gint telefax_common_saved_state_get_window_height (TelefaxCommonSavedState* self);
+GType telefax_common_window_state_get_type (void) G_GNUC_CONST;
+TelefaxCommonWindowState telefax_common_saved_state_get_window_state (TelefaxCommonSavedState* self);
+static void telefax_main_window_on_quit (TelefaxMainWindow* self);
 static void _telefax_main_window_on_quit_gtk_widget_destroy (GtkWidget* _sender, gpointer self);
+void telefax_common_saved_state_set_window_state (TelefaxCommonSavedState* self, TelefaxCommonWindowState value);
+void telefax_common_saved_state_set_window_width (TelefaxCommonSavedState* self, gint value);
+void telefax_common_saved_state_set_window_height (TelefaxCommonSavedState* self, gint value);
+static gboolean telefax_main_window_real_configure_event (GtkWidget* base, GdkEventConfigure* event);
+static void telefax_main_window_finalize (GObject* obj);
 
 
-telefaxMainWindow* telefax_main_window_construct (GType object_type) {
-	telefaxMainWindow * self = NULL;
-	self = (telefaxMainWindow*) g_object_new (object_type, NULL);
+TelefaxMainWindow* telefax_main_window_construct (GType object_type) {
+	TelefaxMainWindow * self = NULL;
+	self = (TelefaxMainWindow*) g_object_new (object_type, NULL);
 	telefax_main_window_setup_window (self);
+	telefax_main_window_create_layout (self);
 	return self;
 }
 
 
-telefaxMainWindow* telefax_main_window_new (void) {
+TelefaxMainWindow* telefax_main_window_new (void) {
 	return telefax_main_window_construct (TELEFAX_TYPE_MAIN_WINDOW);
 }
 
 
 static void _telefax_main_window_on_quit_gtk_widget_destroy (GtkWidget* _sender, gpointer self) {
-	telefax_main_window_on_quit ((telefaxMainWindow*) self);
+	telefax_main_window_on_quit ((TelefaxMainWindow*) self);
 }
 
 
-static inline void telefax_main_window_setup_window (telefaxMainWindow* self) {
+static void telefax_main_window_setup_window (TelefaxMainWindow* self) {
 	const gchar* _tmp0_ = NULL;
+	TelefaxCommonSavedState* saved_state = NULL;
+	TelefaxCommonSavedState* _tmp1_ = NULL;
+	TelefaxCommonSavedState* _tmp2_ = NULL;
+	gint _tmp3_ = 0;
+	gint _tmp4_ = 0;
+	TelefaxCommonSavedState* _tmp5_ = NULL;
+	gint _tmp6_ = 0;
+	gint _tmp7_ = 0;
+	TelefaxCommonSavedState* _tmp8_ = NULL;
+	TelefaxCommonWindowState _tmp9_ = 0;
+	TelefaxCommonWindowState _tmp10_ = 0;
 	g_return_if_fail (self != NULL);
-	_tmp0_ = _ ("Telegram");
+	_tmp0_ = _ ("Telefax");
 	gtk_window_set_title ((GtkWindow*) self, _tmp0_);
-	g_object_set ((GtkWidget*) self, "height-request", 350, NULL);
-	g_object_set ((GtkWidget*) self, "width-request", 400, NULL);
-	g_object_set ((GtkWindow*) self, "window-position", GTK_WIN_POS_CENTER, NULL);
 	gtk_window_set_icon_name ((GtkWindow*) self, "TODO");
+	_tmp1_ = telefax_common_saved_state_get_default ();
+	saved_state = _tmp1_;
+	_tmp2_ = saved_state;
+	_tmp3_ = telefax_common_saved_state_get_window_width (_tmp2_);
+	_tmp4_ = _tmp3_;
+	_tmp5_ = saved_state;
+	_tmp6_ = telefax_common_saved_state_get_window_height (_tmp5_);
+	_tmp7_ = _tmp6_;
+	gtk_window_set_default_size ((GtkWindow*) self, _tmp4_, _tmp7_);
+	_tmp8_ = saved_state;
+	_tmp9_ = telefax_common_saved_state_get_window_state (_tmp8_);
+	_tmp10_ = _tmp9_;
+	switch (_tmp10_) {
+		case TELEFAX_COMMON_WINDOW_STATE_MAXIMIZED:
+		{
+			self->priv->window_maximized = TRUE;
+			gtk_window_maximize ((GtkWindow*) self);
+			break;
+		}
+		default:
+		{
+			break;
+		}
+	}
 	g_signal_connect_object ((GtkWidget*) self, "destroy", (GCallback) _telefax_main_window_on_quit_gtk_widget_destroy, self, 0);
 	gtk_widget_show ((GtkWidget*) self);
+	_g_object_unref0 (saved_state);
 }
 
 
-static void telefax_main_window_on_quit (telefaxMainWindow* self) {
+static void telefax_main_window_create_layout (TelefaxMainWindow* self) {
 	g_return_if_fail (self != NULL);
 }
 
 
-static void telefax_main_window_class_init (telefaxMainWindowClass * klass) {
-	telefax_main_window_parent_class = g_type_class_peek_parent (klass);
+static void telefax_main_window_on_quit (TelefaxMainWindow* self) {
+	TelefaxCommonSavedState* saved_state = NULL;
+	TelefaxCommonSavedState* _tmp0_ = NULL;
+	gboolean _tmp1_ = FALSE;
+	TelefaxCommonSavedState* _tmp4_ = NULL;
+	gint _tmp5_ = 0;
+	TelefaxCommonSavedState* _tmp6_ = NULL;
+	gint _tmp7_ = 0;
+	g_return_if_fail (self != NULL);
+	_tmp0_ = telefax_common_saved_state_get_default ();
+	saved_state = _tmp0_;
+	_tmp1_ = self->priv->window_maximized;
+	if (_tmp1_) {
+		TelefaxCommonSavedState* _tmp2_ = NULL;
+		_tmp2_ = saved_state;
+		telefax_common_saved_state_set_window_state (_tmp2_, TELEFAX_COMMON_WINDOW_STATE_MAXIMIZED);
+	} else {
+		TelefaxCommonSavedState* _tmp3_ = NULL;
+		_tmp3_ = saved_state;
+		telefax_common_saved_state_set_window_state (_tmp3_, TELEFAX_COMMON_WINDOW_STATE_NORMAL);
+	}
+	_tmp4_ = saved_state;
+	_tmp5_ = self->priv->window_width;
+	telefax_common_saved_state_set_window_width (_tmp4_, _tmp5_);
+	_tmp6_ = saved_state;
+	_tmp7_ = self->priv->window_height;
+	telefax_common_saved_state_set_window_height (_tmp6_, _tmp7_);
+	_g_object_unref0 (saved_state);
 }
 
 
-static void telefax_main_window_instance_init (telefaxMainWindow * self) {
+static gboolean telefax_main_window_real_configure_event (GtkWidget* base, GdkEventConfigure* event) {
+	TelefaxMainWindow * self;
+	gboolean result = FALSE;
+	GdkWindow* _tmp0_ = NULL;
+	GdkWindowState _tmp1_ = 0;
+	gboolean _tmp2_ = FALSE;
+	GdkEventConfigure* _tmp5_ = NULL;
+	gboolean _tmp6_ = FALSE;
+	self = (TelefaxMainWindow*) base;
+	g_return_val_if_fail (event != NULL, FALSE);
+	_tmp0_ = gtk_widget_get_window ((GtkWidget*) self);
+	_tmp1_ = gdk_window_get_state (_tmp0_);
+	self->priv->window_maximized = _tmp1_ == GDK_WINDOW_STATE_MAXIMIZED;
+	_tmp2_ = self->priv->window_maximized;
+	if (_tmp2_ == FALSE) {
+		gint _tmp3_ = 0;
+		gint _tmp4_ = 0;
+		gtk_window_get_size ((GtkWindow*) self, &_tmp3_, &_tmp4_);
+		self->priv->window_width = _tmp3_;
+		self->priv->window_height = _tmp4_;
+	}
+	_tmp5_ = event;
+	_tmp6_ = GTK_WIDGET_CLASS (telefax_main_window_parent_class)->configure_event ((GtkWidget*) G_TYPE_CHECK_INSTANCE_CAST (self, gtk_window_get_type (), GtkWindow), _tmp5_);
+	result = _tmp6_;
+	return result;
+}
+
+
+static void telefax_main_window_class_init (TelefaxMainWindowClass * klass) {
+	telefax_main_window_parent_class = g_type_class_peek_parent (klass);
+	g_type_class_add_private (klass, sizeof (TelefaxMainWindowPrivate));
+	((GtkWidgetClass *) klass)->configure_event = telefax_main_window_real_configure_event;
+	G_OBJECT_CLASS (klass)->finalize = telefax_main_window_finalize;
+}
+
+
+static void telefax_main_window_instance_init (TelefaxMainWindow * self) {
+	self->priv = TELEFAX_MAIN_WINDOW_GET_PRIVATE (self);
+	self->priv->window_maximized = FALSE;
+	self->priv->window_width = 0;
+	self->priv->window_height = 0;
+}
+
+
+static void telefax_main_window_finalize (GObject* obj) {
+	TelefaxMainWindow * self;
+	self = G_TYPE_CHECK_INSTANCE_CAST (obj, TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindow);
+	G_OBJECT_CLASS (telefax_main_window_parent_class)->finalize (obj);
 }
 
 
 GType telefax_main_window_get_type (void) {
 	static volatile gsize telefax_main_window_type_id__volatile = 0;
 	if (g_once_init_enter (&telefax_main_window_type_id__volatile)) {
-		static const GTypeInfo g_define_type_info = { sizeof (telefaxMainWindowClass), (GBaseInitFunc) NULL, (GBaseFinalizeFunc) NULL, (GClassInitFunc) telefax_main_window_class_init, (GClassFinalizeFunc) NULL, NULL, sizeof (telefaxMainWindow), 0, (GInstanceInitFunc) telefax_main_window_instance_init, NULL };
+		static const GTypeInfo g_define_type_info = { sizeof (TelefaxMainWindowClass), (GBaseInitFunc) NULL, (GBaseFinalizeFunc) NULL, (GClassInitFunc) telefax_main_window_class_init, (GClassFinalizeFunc) NULL, NULL, sizeof (TelefaxMainWindow), 0, (GInstanceInitFunc) telefax_main_window_instance_init, NULL };
 		GType telefax_main_window_type_id;
-		telefax_main_window_type_id = g_type_register_static (gtk_window_get_type (), "telefaxMainWindow", &g_define_type_info, 0);
+		telefax_main_window_type_id = g_type_register_static (gtk_window_get_type (), "TelefaxMainWindow", &g_define_type_info, 0);
 		g_once_init_leave (&telefax_main_window_type_id__volatile, telefax_main_window_type_id);
 	}
 	return telefax_main_window_type_id__volatile;

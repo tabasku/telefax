@@ -74,7 +74,7 @@ src/preinstall:
 src/CMakeFiles/telefax.dir/all:
 	$(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/depend
 	$(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles  3 4 5 6 7
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles  3 4 5 6 7 8 9
 	@echo "Built target telefax"
 .PHONY : src/CMakeFiles/telefax.dir/all
 
@@ -84,7 +84,7 @@ all: src/CMakeFiles/telefax.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/telefax.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jtvi/Projects/telefax/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jtvi/Projects/telefax/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/telefax.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jtvi/Projects/telefax/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/telefax.dir/rule
@@ -183,6 +183,21 @@ po/CMakeFiles/pot.dir/clean:
 # clean rule for target.
 clean: po/CMakeFiles/pot.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory schemas
+
+# Convenience name for "all" pass in the directory.
+schemas/all:
+.PHONY : schemas/all
+
+# Convenience name for "clean" pass in the directory.
+schemas/clean:
+.PHONY : schemas/clean
+
+# Convenience name for "preinstall" pass in the directory.
+schemas/preinstall:
+.PHONY : schemas/preinstall
 
 #=============================================================================
 # Special targets to cleanup operation of make.

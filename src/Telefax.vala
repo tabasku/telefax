@@ -1,6 +1,6 @@
 using Granite;
 
-namespace telefax {
+namespace Telefax {
 
 	public class Telefax : Granite.Application {
 
@@ -29,15 +29,13 @@ namespace telefax {
 		}
 
 		public Telefax(){
-	
+			if (DEBUG)
+                Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
+           	else
+                Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
 		}
 
 		protected override void activate () {
-
-			//if (DEBUG)
-                Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
-           	//else
-                //Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
 
         	if (main_window == null) {
 				main_window = new MainWindow();        	    

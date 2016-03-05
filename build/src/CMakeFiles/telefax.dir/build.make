@@ -55,15 +55,21 @@ src/Main.c: src/Config.c
 
 src/MainWindow.c: src/Config.c
 
+src/Objects/SavedState.c: src/Config.c
+
+src/Objects/Settings.c: src/Config.c
+
 src/Telefax.c: src/Config.c
 
 src/telefax_valac.stamp: src/Config.vala
 src/telefax_valac.stamp: ../src/Main.vala
 src/telefax_valac.stamp: ../src/MainWindow.vala
+src/telefax_valac.stamp: ../src/Objects/SavedState.vala
+src/telefax_valac.stamp: ../src/Objects/Settings.vala
 src/telefax_valac.stamp: ../src/Telefax.vala
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating /home/jtvi/Projects/telefax/build/src/Config.c;Main.c;MainWindow.c;Telefax.c"
-	cd /home/jtvi/Projects/telefax/build/src && valac-0.28 -C -b /home/jtvi/Projects/telefax/src -d /home/jtvi/Projects/telefax/build/src --pkg=atk --pkg=cairo --pkg=gdk-3.0 --pkg=gdk-pixbuf-2.0 --pkg=gee-0.8 --pkg=gio-2.0 --pkg=gio-unix-2.0 --pkg=glib-2.0 --pkg=gobject-2.0 --pkg=granite --pkg=gtk+-3.0 --pkg=pango --pkg=x11 /home/jtvi/Projects/telefax/build/src/Config.vala /home/jtvi/Projects/telefax/src/Main.vala /home/jtvi/Projects/telefax/src/MainWindow.vala /home/jtvi/Projects/telefax/src/Telefax.vala
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating /home/jtvi/Projects/telefax/build/src/Config.c;Main.c;MainWindow.c;Objects/SavedState.c;Objects/Settings.c;Telefax.c"
+	cd /home/jtvi/Projects/telefax/build/src && valac-0.28 -C -b /home/jtvi/Projects/telefax/src -d /home/jtvi/Projects/telefax/build/src --pkg=gee-0.8 --pkg=gio-unix-2.0 --pkg=glib-2.0 --pkg=gobject-2.0 --pkg=granite --pkg=gtk+-3.0 /home/jtvi/Projects/telefax/build/src/Config.vala /home/jtvi/Projects/telefax/src/Main.vala /home/jtvi/Projects/telefax/src/MainWindow.vala /home/jtvi/Projects/telefax/src/Objects/SavedState.vala /home/jtvi/Projects/telefax/src/Objects/Settings.vala /home/jtvi/Projects/telefax/src/Telefax.vala
 	cd /home/jtvi/Projects/telefax/build/src && touch /home/jtvi/Projects/telefax/build/src/telefax_valac.stamp
 
 src/CMakeFiles/telefax.dir/Config.c.o: src/CMakeFiles/telefax.dir/flags.make
@@ -135,9 +141,55 @@ src/CMakeFiles/telefax.dir/MainWindow.c.o.provides: src/CMakeFiles/telefax.dir/M
 
 src/CMakeFiles/telefax.dir/MainWindow.c.o.provides.build: src/CMakeFiles/telefax.dir/MainWindow.c.o
 
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o: src/CMakeFiles/telefax.dir/flags.make
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o: src/Objects/SavedState.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object src/CMakeFiles/telefax.dir/Objects/SavedState.c.o"
+	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/telefax.dir/Objects/SavedState.c.o   -c /home/jtvi/Projects/telefax/build/src/Objects/SavedState.c
+
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/telefax.dir/Objects/SavedState.c.i"
+	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/jtvi/Projects/telefax/build/src/Objects/SavedState.c > CMakeFiles/telefax.dir/Objects/SavedState.c.i
+
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/telefax.dir/Objects/SavedState.c.s"
+	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/jtvi/Projects/telefax/build/src/Objects/SavedState.c -o CMakeFiles/telefax.dir/Objects/SavedState.c.s
+
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.requires:
+.PHONY : src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.requires
+
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.provides: src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.requires
+	$(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.provides.build
+.PHONY : src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.provides
+
+src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.provides.build: src/CMakeFiles/telefax.dir/Objects/SavedState.c.o
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o: src/CMakeFiles/telefax.dir/flags.make
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o: src/Objects/Settings.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object src/CMakeFiles/telefax.dir/Objects/Settings.c.o"
+	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/telefax.dir/Objects/Settings.c.o   -c /home/jtvi/Projects/telefax/build/src/Objects/Settings.c
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/telefax.dir/Objects/Settings.c.i"
+	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/jtvi/Projects/telefax/build/src/Objects/Settings.c > CMakeFiles/telefax.dir/Objects/Settings.c.i
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/telefax.dir/Objects/Settings.c.s"
+	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/jtvi/Projects/telefax/build/src/Objects/Settings.c -o CMakeFiles/telefax.dir/Objects/Settings.c.s
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o.requires:
+.PHONY : src/CMakeFiles/telefax.dir/Objects/Settings.c.o.requires
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o.provides: src/CMakeFiles/telefax.dir/Objects/Settings.c.o.requires
+	$(MAKE) -f src/CMakeFiles/telefax.dir/build.make src/CMakeFiles/telefax.dir/Objects/Settings.c.o.provides.build
+.PHONY : src/CMakeFiles/telefax.dir/Objects/Settings.c.o.provides
+
+src/CMakeFiles/telefax.dir/Objects/Settings.c.o.provides.build: src/CMakeFiles/telefax.dir/Objects/Settings.c.o
+
 src/CMakeFiles/telefax.dir/Telefax.c.o: src/CMakeFiles/telefax.dir/flags.make
 src/CMakeFiles/telefax.dir/Telefax.c.o: src/Telefax.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jtvi/Projects/telefax/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object src/CMakeFiles/telefax.dir/Telefax.c.o"
 	cd /home/jtvi/Projects/telefax/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/telefax.dir/Telefax.c.o   -c /home/jtvi/Projects/telefax/build/src/Telefax.c
 
@@ -163,6 +215,8 @@ telefax_OBJECTS = \
 "CMakeFiles/telefax.dir/Config.c.o" \
 "CMakeFiles/telefax.dir/Main.c.o" \
 "CMakeFiles/telefax.dir/MainWindow.c.o" \
+"CMakeFiles/telefax.dir/Objects/SavedState.c.o" \
+"CMakeFiles/telefax.dir/Objects/Settings.c.o" \
 "CMakeFiles/telefax.dir/Telefax.c.o"
 
 # External object files for target telefax
@@ -171,6 +225,8 @@ telefax_EXTERNAL_OBJECTS =
 src/telefax: src/CMakeFiles/telefax.dir/Config.c.o
 src/telefax: src/CMakeFiles/telefax.dir/Main.c.o
 src/telefax: src/CMakeFiles/telefax.dir/MainWindow.c.o
+src/telefax: src/CMakeFiles/telefax.dir/Objects/SavedState.c.o
+src/telefax: src/CMakeFiles/telefax.dir/Objects/Settings.c.o
 src/telefax: src/CMakeFiles/telefax.dir/Telefax.c.o
 src/telefax: src/CMakeFiles/telefax.dir/build.make
 src/telefax: src/CMakeFiles/telefax.dir/link.txt
@@ -184,6 +240,8 @@ src/CMakeFiles/telefax.dir/build: src/telefax
 src/CMakeFiles/telefax.dir/requires: src/CMakeFiles/telefax.dir/Config.c.o.requires
 src/CMakeFiles/telefax.dir/requires: src/CMakeFiles/telefax.dir/Main.c.o.requires
 src/CMakeFiles/telefax.dir/requires: src/CMakeFiles/telefax.dir/MainWindow.c.o.requires
+src/CMakeFiles/telefax.dir/requires: src/CMakeFiles/telefax.dir/Objects/SavedState.c.o.requires
+src/CMakeFiles/telefax.dir/requires: src/CMakeFiles/telefax.dir/Objects/Settings.c.o.requires
 src/CMakeFiles/telefax.dir/requires: src/CMakeFiles/telefax.dir/Telefax.c.o.requires
 .PHONY : src/CMakeFiles/telefax.dir/requires
 
@@ -194,6 +252,8 @@ src/CMakeFiles/telefax.dir/clean:
 src/CMakeFiles/telefax.dir/depend: src/Config.c
 src/CMakeFiles/telefax.dir/depend: src/Main.c
 src/CMakeFiles/telefax.dir/depend: src/MainWindow.c
+src/CMakeFiles/telefax.dir/depend: src/Objects/SavedState.c
+src/CMakeFiles/telefax.dir/depend: src/Objects/Settings.c
 src/CMakeFiles/telefax.dir/depend: src/Telefax.c
 src/CMakeFiles/telefax.dir/depend: src/telefax_valac.stamp
 	cd /home/jtvi/Projects/telefax/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jtvi/Projects/telefax /home/jtvi/Projects/telefax/src /home/jtvi/Projects/telefax/build /home/jtvi/Projects/telefax/build/src /home/jtvi/Projects/telefax/build/src/CMakeFiles/telefax.dir/DependInfo.cmake --color=$(COLOR)

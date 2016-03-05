@@ -1,8 +1,12 @@
-using Gtk;
+using Telefax.Common;
 
-namespace telefax {
+namespace Telefax {
 
-    public class MainWindow : Window{
+    public class MainWindow : Gtk.Window{
+
+        private bool window_maximized = false;
+        private int window_width = 0;
+        private int window_height = 0;
 
         public MainWindow(){
            setup_window();
@@ -10,28 +14,25 @@ namespace telefax {
         }
 
         private void setup_window () {
-            this.title =_("Telegram");
-            this.height_request = 350;
-            this.width_request = 400;
-            this.window_position = Gtk.WindowPosition.CENTER;
+            this.title =_("Telefax");
 
             //TODO: Icon name
             this.icon_name = "TODO";
 
-            //TODO: Load state
             // set the size based on saved settings
-            //var saved_state = Settings.SavedState.get_default ();
-            //this.set_default_size (saved_state.window_width, saved_state.window_height);
+            var saved_state = SavedState.get_default ();
+            
+            this.set_default_size (saved_state.window_width, saved_state.window_height);
 
             // Maximize window if necessary
-            //switch (saved_state.window_state) {
-            //    case Settings.WindowState.MAXIMIZED:
-            //        window_maximized = true;
-            //        this.maximize ();
-            //        break;
-            //    default:
-            //        break;
-            //}
+            switch (saved_state.window_state) {
+                case WindowState.MAXIMIZED:
+                    window_maximized = true;
+                    this.maximize ();
+                    break;
+                default:
+                    break;
+            }
 
 
             this.destroy.connect (on_quit);
@@ -47,7 +48,27 @@ namespace telefax {
 
         private void on_quit () {
         
-            //TODO: Save state
+            // Now set the selected view
+            var saved_state = SavedState.get_default ();
+            
+            // Save window state
+            if (window_maximized)
+                saved_state.window_state = WindowState.MAXIMIZED;
+            else
+                saved_state.window_state = WindowState.NORMAL;
+
+            saved_state.window_width = window_width;
+            saved_state.window_height = window_height;
+        }
+        
+        public override bool configure_event (Gdk.EventConfigure event) {
+            // Get window dimensions.
+            window_maximized = (get_window ().get_state () == Gdk.WindowState.MAXIMIZED);
+
+            if (window_maximized == false)
+                get_size (out window_width, out window_height);
+
+            return base.configure_event (event);
         }
     }
 }

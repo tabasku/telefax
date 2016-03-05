@@ -12,54 +12,54 @@
 
 
 #define TELEFAX_TYPE_TELEFAX (telefax_telefax_get_type ())
-#define TELEFAX_TELEFAX(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_TYPE_TELEFAX, telefaxTelefax))
-#define TELEFAX_TELEFAX_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_TYPE_TELEFAX, telefaxTelefaxClass))
+#define TELEFAX_TELEFAX(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_TYPE_TELEFAX, TelefaxTelefax))
+#define TELEFAX_TELEFAX_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_TYPE_TELEFAX, TelefaxTelefaxClass))
 #define TELEFAX_IS_TELEFAX(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TELEFAX_TYPE_TELEFAX))
 #define TELEFAX_IS_TELEFAX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TELEFAX_TYPE_TELEFAX))
-#define TELEFAX_TELEFAX_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_TYPE_TELEFAX, telefaxTelefaxClass))
+#define TELEFAX_TELEFAX_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_TYPE_TELEFAX, TelefaxTelefaxClass))
 
-typedef struct _telefaxTelefax telefaxTelefax;
-typedef struct _telefaxTelefaxClass telefaxTelefaxClass;
-typedef struct _telefaxTelefaxPrivate telefaxTelefaxPrivate;
+typedef struct _TelefaxTelefax TelefaxTelefax;
+typedef struct _TelefaxTelefaxClass TelefaxTelefaxClass;
+typedef struct _TelefaxTelefaxPrivate TelefaxTelefaxPrivate;
 
 #define TELEFAX_TYPE_MAIN_WINDOW (telefax_main_window_get_type ())
-#define TELEFAX_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_TYPE_MAIN_WINDOW, telefaxMainWindow))
-#define TELEFAX_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_TYPE_MAIN_WINDOW, telefaxMainWindowClass))
+#define TELEFAX_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindow))
+#define TELEFAX_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindowClass))
 #define TELEFAX_IS_MAIN_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TELEFAX_TYPE_MAIN_WINDOW))
 #define TELEFAX_IS_MAIN_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TELEFAX_TYPE_MAIN_WINDOW))
-#define TELEFAX_MAIN_WINDOW_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_TYPE_MAIN_WINDOW, telefaxMainWindowClass))
+#define TELEFAX_MAIN_WINDOW_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), TELEFAX_TYPE_MAIN_WINDOW, TelefaxMainWindowClass))
 
-typedef struct _telefaxMainWindow telefaxMainWindow;
-typedef struct _telefaxMainWindowClass telefaxMainWindowClass;
+typedef struct _TelefaxMainWindow TelefaxMainWindow;
+typedef struct _TelefaxMainWindowClass TelefaxMainWindowClass;
 #define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
 #define _g_free0(var) (var = (g_free (var), NULL))
 
-struct _telefaxTelefax {
+struct _TelefaxTelefax {
 	GraniteApplication parent_instance;
-	telefaxTelefaxPrivate * priv;
+	TelefaxTelefaxPrivate * priv;
 };
 
-struct _telefaxTelefaxClass {
+struct _TelefaxTelefaxClass {
 	GraniteApplicationClass parent_class;
 };
 
 
 static gpointer telefax_telefax_parent_class = NULL;
-static telefaxMainWindow* telefax_telefax__main_window;
-static telefaxMainWindow* telefax_telefax__main_window = NULL;
+static TelefaxMainWindow* telefax_telefax__main_window;
+static TelefaxMainWindow* telefax_telefax__main_window = NULL;
 
 GType telefax_telefax_get_type (void) G_GNUC_CONST;
 enum  {
 	TELEFAX_TELEFAX_DUMMY_PROPERTY
 };
 GType telefax_main_window_get_type (void) G_GNUC_CONST;
-telefaxTelefax* telefax_telefax_new (void);
-telefaxTelefax* telefax_telefax_construct (GType object_type);
+TelefaxTelefax* telefax_telefax_new (void);
+TelefaxTelefax* telefax_telefax_construct (GType object_type);
 static void telefax_telefax_real_activate (GApplication* base);
-telefaxMainWindow* telefax_telefax_get_main_window (void);
-telefaxMainWindow* telefax_main_window_new (void);
-telefaxMainWindow* telefax_main_window_construct (GType object_type);
-static void telefax_telefax_set_main_window (telefaxMainWindow* value);
+TelefaxMainWindow* telefax_telefax_get_main_window (void);
+TelefaxMainWindow* telefax_main_window_new (void);
+TelefaxMainWindow* telefax_main_window_construct (GType object_type);
+static void telefax_telefax_set_main_window (TelefaxMainWindow* value);
 static GObject * telefax_telefax_constructor (GType type, guint n_construct_properties, GObjectConstructParam * construct_properties);
 #define CONSTANTS_DATADIR "/usr/local/share"
 #define CONSTANTS_PKGDATADIR "/usr/local/share/telefax"
@@ -72,59 +72,69 @@ static void _vala_array_destroy (gpointer array, gint array_length, GDestroyNoti
 static void _vala_array_free (gpointer array, gint array_length, GDestroyNotify destroy_func);
 
 
-telefaxTelefax* telefax_telefax_construct (GType object_type) {
-	telefaxTelefax * self = NULL;
-	self = (telefaxTelefax*) granite_application_construct (object_type);
+TelefaxTelefax* telefax_telefax_construct (GType object_type) {
+	TelefaxTelefax * self = NULL;
+	gboolean _tmp0_ = FALSE;
+	self = (TelefaxTelefax*) granite_application_construct (object_type);
+	_tmp0_ = granite_application_DEBUG;
+	if (_tmp0_) {
+		GraniteServicesLogLevel _tmp1_ = 0;
+		GraniteServicesLogLevel _tmp2_ = 0;
+		_tmp1_ = granite_services_logger_get_DisplayLevel ();
+		_tmp2_ = _tmp1_;
+		granite_services_logger_set_DisplayLevel (GRANITE_SERVICES_LOG_LEVEL_DEBUG);
+	} else {
+		GraniteServicesLogLevel _tmp3_ = 0;
+		GraniteServicesLogLevel _tmp4_ = 0;
+		_tmp3_ = granite_services_logger_get_DisplayLevel ();
+		_tmp4_ = _tmp3_;
+		granite_services_logger_set_DisplayLevel (GRANITE_SERVICES_LOG_LEVEL_INFO);
+	}
 	return self;
 }
 
 
-telefaxTelefax* telefax_telefax_new (void) {
+TelefaxTelefax* telefax_telefax_new (void) {
 	return telefax_telefax_construct (TELEFAX_TYPE_TELEFAX);
 }
 
 
 static void telefax_telefax_real_activate (GApplication* base) {
-	telefaxTelefax * self;
-	GraniteServicesLogLevel _tmp0_ = 0;
-	GraniteServicesLogLevel _tmp1_ = 0;
-	telefaxMainWindow* _tmp2_ = NULL;
-	telefaxMainWindow* _tmp3_ = NULL;
-	telefaxMainWindow* _tmp10_ = NULL;
-	telefaxMainWindow* _tmp11_ = NULL;
-	self = (telefaxTelefax*) base;
-	_tmp0_ = granite_services_logger_get_DisplayLevel ();
+	TelefaxTelefax * self;
+	TelefaxMainWindow* _tmp0_ = NULL;
+	TelefaxMainWindow* _tmp1_ = NULL;
+	TelefaxMainWindow* _tmp8_ = NULL;
+	TelefaxMainWindow* _tmp9_ = NULL;
+	self = (TelefaxTelefax*) base;
+	_tmp0_ = telefax_telefax_get_main_window ();
 	_tmp1_ = _tmp0_;
-	granite_services_logger_set_DisplayLevel (GRANITE_SERVICES_LOG_LEVEL_DEBUG);
-	_tmp2_ = telefax_telefax_get_main_window ();
-	_tmp3_ = _tmp2_;
-	if (_tmp3_ == NULL) {
-		telefaxMainWindow* _tmp4_ = NULL;
-		telefaxMainWindow* _tmp5_ = NULL;
-		telefaxMainWindow* _tmp6_ = NULL;
-		telefaxMainWindow* _tmp7_ = NULL;
-		telefaxMainWindow* _tmp8_ = NULL;
-		telefaxMainWindow* _tmp9_ = NULL;
-		_tmp4_ = telefax_telefax_get_main_window ();
+	if (_tmp1_ == NULL) {
+		TelefaxMainWindow* _tmp2_ = NULL;
+		TelefaxMainWindow* _tmp3_ = NULL;
+		TelefaxMainWindow* _tmp4_ = NULL;
+		TelefaxMainWindow* _tmp5_ = NULL;
+		TelefaxMainWindow* _tmp6_ = NULL;
+		TelefaxMainWindow* _tmp7_ = NULL;
+		_tmp2_ = telefax_telefax_get_main_window ();
+		_tmp3_ = _tmp2_;
+		_tmp4_ = telefax_main_window_new ();
+		g_object_ref_sink (_tmp4_);
 		_tmp5_ = _tmp4_;
-		_tmp6_ = telefax_main_window_new ();
-		g_object_ref_sink (_tmp6_);
+		telefax_telefax_set_main_window (_tmp5_);
+		_g_object_unref0 (_tmp5_);
+		_tmp6_ = telefax_telefax_get_main_window ();
 		_tmp7_ = _tmp6_;
-		telefax_telefax_set_main_window (_tmp7_);
-		_g_object_unref0 (_tmp7_);
-		_tmp8_ = telefax_telefax_get_main_window ();
-		_tmp9_ = _tmp8_;
-		gtk_window_set_application ((GtkWindow*) _tmp9_, (GtkApplication*) self);
+		gtk_window_set_application ((GtkWindow*) _tmp7_, (GtkApplication*) self);
 	}
-	_tmp10_ = telefax_telefax_get_main_window ();
-	_tmp11_ = _tmp10_;
-	gtk_window_present ((GtkWindow*) _tmp11_);
+	_tmp8_ = telefax_telefax_get_main_window ();
+	_tmp9_ = _tmp8_;
+	gtk_window_present ((GtkWindow*) _tmp9_);
 }
 
 
-telefaxMainWindow* telefax_telefax_get_main_window (void) {
-	telefaxMainWindow* result;
-	telefaxMainWindow* _tmp0_ = NULL;
+TelefaxMainWindow* telefax_telefax_get_main_window (void) {
+	TelefaxMainWindow* result;
+	TelefaxMainWindow* _tmp0_ = NULL;
 	_tmp0_ = telefax_telefax__main_window;
 	result = _tmp0_;
 	return result;
@@ -136,9 +146,9 @@ static gpointer _g_object_ref0 (gpointer self) {
 }
 
 
-static void telefax_telefax_set_main_window (telefaxMainWindow* value) {
-	telefaxMainWindow* _tmp0_ = NULL;
-	telefaxMainWindow* _tmp1_ = NULL;
+static void telefax_telefax_set_main_window (TelefaxMainWindow* value) {
+	TelefaxMainWindow* _tmp0_ = NULL;
+	TelefaxMainWindow* _tmp1_ = NULL;
 	_tmp0_ = value;
 	_tmp1_ = _g_object_ref0 (_tmp0_);
 	_g_object_unref0 (telefax_telefax__main_window);
@@ -149,7 +159,7 @@ static void telefax_telefax_set_main_window (telefaxMainWindow* value) {
 static GObject * telefax_telefax_constructor (GType type, guint n_construct_properties, GObjectConstructParam * construct_properties) {
 	GObject * obj;
 	GObjectClass * parent_class;
-	telefaxTelefax * self;
+	TelefaxTelefax * self;
 	gchar* _tmp0_ = NULL;
 	gchar* _tmp1_ = NULL;
 	gchar* _tmp2_ = NULL;
@@ -167,7 +177,7 @@ static GObject * telefax_telefax_constructor (GType type, guint n_construct_prop
 	gchar** _tmp14_ = NULL;
 	parent_class = G_OBJECT_CLASS (telefax_telefax_parent_class);
 	obj = parent_class->constructor (type, n_construct_properties, construct_properties);
-	self = G_TYPE_CHECK_INSTANCE_CAST (obj, TELEFAX_TYPE_TELEFAX, telefaxTelefax);
+	self = G_TYPE_CHECK_INSTANCE_CAST (obj, TELEFAX_TYPE_TELEFAX, TelefaxTelefax);
 	_tmp0_ = g_strdup (CONSTANTS_DATADIR);
 	_g_free0 (((GraniteApplication*) self)->build_data_dir);
 	((GraniteApplication*) self)->build_data_dir = _tmp0_;
@@ -217,7 +227,7 @@ static GObject * telefax_telefax_constructor (GType type, guint n_construct_prop
 }
 
 
-static void telefax_telefax_class_init (telefaxTelefaxClass * klass) {
+static void telefax_telefax_class_init (TelefaxTelefaxClass * klass) {
 	telefax_telefax_parent_class = g_type_class_peek_parent (klass);
 	((GApplicationClass *) klass)->activate = telefax_telefax_real_activate;
 	G_OBJECT_CLASS (klass)->get_property = _vala_telefax_telefax_get_property;
@@ -227,13 +237,13 @@ static void telefax_telefax_class_init (telefaxTelefaxClass * klass) {
 }
 
 
-static void telefax_telefax_instance_init (telefaxTelefax * self) {
+static void telefax_telefax_instance_init (TelefaxTelefax * self) {
 }
 
 
 static void telefax_telefax_finalize (GObject* obj) {
-	telefaxTelefax * self;
-	self = G_TYPE_CHECK_INSTANCE_CAST (obj, TELEFAX_TYPE_TELEFAX, telefaxTelefax);
+	TelefaxTelefax * self;
+	self = G_TYPE_CHECK_INSTANCE_CAST (obj, TELEFAX_TYPE_TELEFAX, TelefaxTelefax);
 	G_OBJECT_CLASS (telefax_telefax_parent_class)->finalize (obj);
 }
 
@@ -241,9 +251,9 @@ static void telefax_telefax_finalize (GObject* obj) {
 GType telefax_telefax_get_type (void) {
 	static volatile gsize telefax_telefax_type_id__volatile = 0;
 	if (g_once_init_enter (&telefax_telefax_type_id__volatile)) {
-		static const GTypeInfo g_define_type_info = { sizeof (telefaxTelefaxClass), (GBaseInitFunc) NULL, (GBaseFinalizeFunc) NULL, (GClassInitFunc) telefax_telefax_class_init, (GClassFinalizeFunc) NULL, NULL, sizeof (telefaxTelefax), 0, (GInstanceInitFunc) telefax_telefax_instance_init, NULL };
+		static const GTypeInfo g_define_type_info = { sizeof (TelefaxTelefaxClass), (GBaseInitFunc) NULL, (GBaseFinalizeFunc) NULL, (GClassInitFunc) telefax_telefax_class_init, (GClassFinalizeFunc) NULL, NULL, sizeof (TelefaxTelefax), 0, (GInstanceInitFunc) telefax_telefax_instance_init, NULL };
 		GType telefax_telefax_type_id;
-		telefax_telefax_type_id = g_type_register_static (GRANITE_TYPE_APPLICATION, "telefaxTelefax", &g_define_type_info, 0);
+		telefax_telefax_type_id = g_type_register_static (GRANITE_TYPE_APPLICATION, "TelefaxTelefax", &g_define_type_info, 0);
 		g_once_init_leave (&telefax_telefax_type_id__volatile, telefax_telefax_type_id);
 	}
 	return telefax_telefax_type_id__volatile;
@@ -251,8 +261,8 @@ GType telefax_telefax_get_type (void) {
 
 
 static void _vala_telefax_telefax_get_property (GObject * object, guint property_id, GValue * value, GParamSpec * pspec) {
-	telefaxTelefax * self;
-	self = G_TYPE_CHECK_INSTANCE_CAST (object, TELEFAX_TYPE_TELEFAX, telefaxTelefax);
+	TelefaxTelefax * self;
+	self = G_TYPE_CHECK_INSTANCE_CAST (object, TELEFAX_TYPE_TELEFAX, TelefaxTelefax);
 	switch (property_id) {
 		default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -262,8 +272,8 @@ static void _vala_telefax_telefax_get_property (GObject * object, guint property
 
 
 static void _vala_telefax_telefax_set_property (GObject * object, guint property_id, const GValue * value, GParamSpec * pspec) {
-	telefaxTelefax * self;
-	self = G_TYPE_CHECK_INSTANCE_CAST (object, TELEFAX_TYPE_TELEFAX, telefaxTelefax);
+	TelefaxTelefax * self;
+	self = G_TYPE_CHECK_INSTANCE_CAST (object, TELEFAX_TYPE_TELEFAX, TelefaxTelefax);
 	switch (property_id) {
 		default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);

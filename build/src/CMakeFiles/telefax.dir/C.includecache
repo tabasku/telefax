@@ -39,6 +39,26 @@ gtk/gtk.h
 -
 glib/gi18n-lib.h
 -
+granite.h
+-
+gdk/gdk.h
+-
+
+/home/jtvi/Projects/telefax/build/src/Objects/SavedState.c
+glib.h
+-
+glib-object.h
+-
+granite.h
+-
+
+/home/jtvi/Projects/telefax/build/src/Objects/Settings.c
+glib.h
+-
+glib-object.h
+-
+granite.h
+-
 
 /home/jtvi/Projects/telefax/build/src/Telefax.c
 glib.h
