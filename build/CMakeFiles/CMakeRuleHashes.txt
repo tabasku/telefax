@@ -1,5 +1,0 @@
-# Hashes of file build rules.
-418d6d47b9cfeeec3af98136b21e8a71 po/CMakeFiles/i18n
-418d6d47b9cfeeec3af98136b21e8a71 po/CMakeFiles/pot
-699faaeab51795636af6f7556d019004 src/Config.c
-dae45b995c1e765d7d4efb64ad13f2a1 src/telefax_valac.stamp
