@@ -37,10 +37,23 @@ set (APP_SOURCES ${APP_SOURCES} Main.vala)
 set (APP_SOURCES ${APP_SOURCES} MainWindow.vala)
 set (APP_SOURCES ${APP_SOURCES} Telefax.vala)
 
+if (DEBUG)
+	set (COMPILE_OPTIONS ${COMPILE_OPTIONS} -D DEBUG)
+	set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DDEBUG " )
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG " )
+endif ()
+if ((DEBUG))
+	set (COMPILE_OPTIONS ${COMPILE_OPTIONS} --save-temps )
+	set (COMPILE_OPTIONS ${COMPILE_OPTIONS} -g )
+endif ()
+
+
 vala_precompile(VALA_C telefax
 	${APP_SOURCES}
 PACKAGES
 	${VALA_PACKAGES}
+OPTIONS
+	${COMPILE_OPTIONS}
 )
 
 add_executable(telefax ${VALA_C})

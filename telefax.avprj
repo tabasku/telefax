@@ -4,7 +4,11 @@ project_name: telefax
 *vala_version: 0.28
 
 
-*vala_binary: src/telefax
+vala_binary: src/telefax
+if (DEBUG)
+compile_options: --save-temps
+compile_options: -g
+end
 *vala_check_package: gee-0.8
 *vala_check_package: gio-unix-2.0
 *vala_check_package: glib-2.0

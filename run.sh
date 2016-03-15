@@ -28,8 +28,9 @@ Build (){
     CMAKE=$(which cmake)
     MAKE=$(which make)
     
-    $AUTOVALA update
-    $CMAKE -DCMAKE_BUILD_TYPE=Debug .. -DCMAKE_INSTALL_PREFIX=$RUN_DIR .. 
+    $AUTOVALA refresh
+    $AUTOVALA cmake
+    $CMAKE -DCMAKE_BUILD_TYPE=Debug -DDEBUG=on -DCMAKE_INSTALL_PREFIX=$RUN_DIR .. 
     $MAKE
     $MAKE install
 }
