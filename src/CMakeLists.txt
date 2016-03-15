@@ -30,10 +30,11 @@ set (VALA_PACKAGES ${VALA_PACKAGES} granite)
 set (VALA_PACKAGES ${VALA_PACKAGES} gtk+-3.0)
 
 set (APP_SOURCES ${APP_SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/Config.vala)
+set (APP_SOURCES ${APP_SOURCES} Common/BaseMainWindow.vala)
+set (APP_SOURCES ${APP_SOURCES} Common/SavedState.vala)
+set (APP_SOURCES ${APP_SOURCES} Common/Settings.vala)
 set (APP_SOURCES ${APP_SOURCES} Main.vala)
 set (APP_SOURCES ${APP_SOURCES} MainWindow.vala)
-set (APP_SOURCES ${APP_SOURCES} Objects/SavedState.vala)
-set (APP_SOURCES ${APP_SOURCES} Objects/Settings.vala)
 set (APP_SOURCES ${APP_SOURCES} Telefax.vala)
 
 vala_precompile(VALA_C telefax

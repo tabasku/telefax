@@ -11,10 +11,11 @@ project_name: telefax
 *vala_check_package: gobject-2.0
 *vala_check_package: granite
 *vala_check_package: gtk+-3.0
+*vala_source: Common/BaseMainWindow.vala
+*vala_source: Common/SavedState.vala
+*vala_source: Common/Settings.vala
 *vala_source: Main.vala
 *vala_source: MainWindow.vala
-*vala_source: Objects/SavedState.vala
-*vala_source: Objects/Settings.vala
 *vala_source: Telefax.vala
 
 *po: po

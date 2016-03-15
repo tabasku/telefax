@@ -1,5 +1,6 @@
+src/Common/BaseMainWindow.vala
+src/Common/SavedState.vala
+src/Common/Settings.vala
 src/Main.vala
 src/MainWindow.vala
-src/Objects/SavedState.vala
-src/Objects/Settings.vala
 src/Telefax.vala

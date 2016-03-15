@@ -1,0 +1,33 @@
+{
+    "version": "0.1.0",
+    "command": "./run.sh",
+    "isShellCommand": true,
+    "tasks": [
+        {
+            //Build Debug build
+            "taskName": "Build",
+            "args": [
+                "build"
+            ],
+            "suppressTaskName": true,
+            "isBuildCommand": true,
+            "showOutput": "always"
+        },
+        {
+            // No debugging info
+            "taskName": "Update language files",
+            "suppressTaskName": true,
+            "args": [
+                "update-language-files"
+            ]
+        },
+        {
+            //Clear build directory
+            "taskName": "Clear",
+            "suppressTaskName": true,
+            "args": [
+                "clear"
+            ]
+        }
+    ]
+}
